@@ -65,6 +65,7 @@ class RegisterFragment: Fragment() {
                     is Resource.Success<*> -> {
                         binding.progressId.visibility = View.GONE
                         Log.d("TAG",it.data.toString())
+
                     }
                     is Resource.Error<*> -> {
                         binding.progressId.visibility = View.GONE

@@ -3,6 +3,7 @@ package com.example.e_mart.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.e_mart.data.User
+import com.example.e_mart.util.Collections.USER_COLLECTIONS
 import com.example.e_mart.util.RegisterStateCheck
 import com.example.e_mart.util.RegisterValidation
 import com.example.e_mart.util.Resource
@@ -22,11 +23,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth,
+    private val db: FirebaseFirestore
 ): ViewModel(){
 
-    private val _register = MutableStateFlow<Resource<FirebaseUser>>(Resource.Test())
-    val register: Flow<Resource<FirebaseUser>> = _register
+    private val _register = MutableStateFlow<Resource<User>>(Resource.Test())
+    val register: Flow<Resource<User>> = _register
     private val _validation = Channel<RegisterStateCheck>()
     val validation = _validation.receiveAsFlow()
     fun createAccountWithEmailAndPassword(user: User,password: String)
@@ -36,7 +38,7 @@ class RegisterViewModel @Inject constructor(
            firebaseAuth.createUserWithEmailAndPassword(user.email,password)
                .addOnSuccessListener {authResult ->
                    authResult.user?.let {firebaseUser ->
-                       _register.value = Resource.Success(firebaseUser)
+                       saveUsers(firebaseUser.uid,user)
                    }
                }.addOnFailureListener {
                    _register.value = Resource.Error(it.message.toString())
@@ -60,6 +62,17 @@ class RegisterViewModel @Inject constructor(
         val validPassword = validationPasswordCheck(password)
         val shouldRegister = validEmail is RegisterValidation.Success && validPassword is RegisterValidation.Success
         return shouldRegister
+    }
+
+    private fun saveUsers(uid: String, user: User) {
+        db.collection(USER_COLLECTIONS)
+            .document(uid)
+            .set(user)
+            .addOnSuccessListener {
+                _register.value = Resource.Success(user)
+            }.addOnFailureListener {
+                _register.value = Resource.Error(it.message.toString())
+            }
     }
 }
 
