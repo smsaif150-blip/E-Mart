@@ -9,9 +9,7 @@ import com.example.e_mart.util.RegisterValidation
 import com.example.e_mart.util.Resource
 import com.example.e_mart.util.validationEmailCheck
 import com.example.e_mart.util.validationPasswordCheck
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
