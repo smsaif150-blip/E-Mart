@@ -55,7 +55,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         val intent = Intent(requireContext(), ShoppingActivity::class.java)
                         //block the back button
                         intent.addFlags(
-                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         )
 
                         startActivity(intent)
