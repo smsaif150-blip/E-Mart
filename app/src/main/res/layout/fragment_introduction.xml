@@ -41,7 +41,7 @@
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/tvQuality"
+        android:id="@+id/tv_goto_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvQuality"
@@ -60,14 +60,17 @@
         android:src="@drawable/texture_right"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnStart"
+        style="@style/blueButtonStyle"
         android:layout_width="@dimen/smallButtonWidth"
         android:layout_height="@dimen/smallButtonHeight"
-        style="@style/blueButtonStyle"
-        app:layout_constraintStart_toStartOf="@id/tvQuality"
-        app:layout_constraintEnd_toEndOf="@id/tvQuality"
-        app:layout_constraintTop_toBottomOf="@id/tvQuality"
+        android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Start"/>
+        app:layout_constraintEnd_toEndOf="@id/tv_goto_register"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@id/tv_goto_register"
+        app:layout_constraintTop_toBottomOf="@id/tv_goto_register"
+        app:layout_constraintVertical_bias="0.507" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeftTexture"
         android:layout_width="wrap_content"

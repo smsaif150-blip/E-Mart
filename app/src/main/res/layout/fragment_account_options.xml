@@ -46,7 +46,7 @@
 
 
         <TextView
-            android:id="@+id/tvQuality"
+            android:id="@+id/tv_goto_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tvQuality"
@@ -66,7 +66,7 @@
             android:text="Register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvQuality" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_goto_register" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonLoginAppcompatOption"

@@ -41,7 +41,7 @@
             android:layout_marginTop="30dp"/>
 
         <TextView
-            android:id="@+id/tvDoNotHaveAccountLogin"
+            android:id="@+id/tv_goto_Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Do you have an account? log in"
@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             style="@style/editText"
             android:hint="First Name"
-            app:layout_constraintTop_toBottomOf="@id/tvDoNotHaveAccountLogin"
+            app:layout_constraintTop_toBottomOf="@id/tv_goto_Login"
             android:layout_marginTop="40dp"
             />
         <EditText

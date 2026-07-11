@@ -10,6 +10,7 @@ import androidx.core.flagging.Flags
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.e_mart.Activities.ShoppingActivity
 import com.example.e_mart.R
 import com.example.e_mart.databinding.FragmentLoginBinding
@@ -36,6 +37,9 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvGotoRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
         binding.buttonLoginLogin.setOnClickListener {
             val email = binding.etLoginEmail.text.toString().trim()
