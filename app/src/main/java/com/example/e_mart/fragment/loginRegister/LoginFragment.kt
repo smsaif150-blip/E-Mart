@@ -15,8 +15,10 @@ import com.example.e_mart.R
 import com.example.e_mart.databinding.FragmentLoginBinding
 import com.example.e_mart.util.Resource
 import com.example.e_mart.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
 
+@AndroidEntryPoint
 class LoginFragment: Fragment(R.layout.fragment_login) {
     val viewModel by viewModels<LoginViewModel>()
     private lateinit var binding: FragmentLoginBinding
@@ -51,6 +53,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                     is Resource.Success<*> -> {
                         binding.LoginProgressbar.visibility = View.GONE
                         val intent = Intent(requireContext(), ShoppingActivity::class.java)
+                        //block the back button
                         intent.addFlags(
                             Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         )
