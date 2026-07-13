@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.e_mart.Activities.ShoppingActivity
 import com.example.e_mart.R
 import com.example.e_mart.databinding.FragmentLoginBinding
+import com.example.e_mart.dialog.setUpBottomSheetDialog
 import com.example.e_mart.util.Resource
 import com.example.e_mart.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,6 +48,10 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             viewModel.login(email,password)
         }
 
+        binding.tvForgotPassword.setOnClickListener {
+            setUpBottomSheetDialog()
+        }
+
         lifecycleScope.launchWhenStarted {
             viewModel.login.collect { result->
                 when(result)
@@ -73,6 +78,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                 }
             }
         }
+
 
     }
 }

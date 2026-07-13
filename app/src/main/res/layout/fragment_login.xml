@@ -79,7 +79,7 @@
         />
 
         <TextView
-            android:id="@+id/forgotPassword"
+            android:id="@+id/tv_forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_thin"
@@ -98,7 +98,7 @@
             style="@style/blueButtonStyle"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/forgotPassword"
+            app:layout_constraintTop_toBottomOf="@id/tv_forgotPassword"
             android:text="Login"
             android:layout_marginTop="15dp"
             />
